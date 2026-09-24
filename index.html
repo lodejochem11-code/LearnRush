@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnRush | Leren zonder saai te zijn</title>
+    <meta
+      name="description"
+      content="LearnRush is een kleurrijke leerwebsite voor pubers met vakken, quizzen, voortgang, badges en een persoonlijk profiel."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand" aria-label="LearnRush home">
+          <span class="brand-mark">L</span>
+          <span>LearnRush</span>
+        </div>
+
+        <nav class="main-nav" aria-label="Hoofdnavigatie">
+          <a href="#dashboard">Dashboard</a>
+          <a href="#vakken">Vakken</a>
+          <a href="#challenge">Uitdaging</a>
+          <a href="#profiel">Profiel</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <button class="ghost-btn" id="loginBtn" type="button">Inloggen</button>
+          <button class="primary-btn" id="signupBtn" type="button">Gratis account</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="home">
+          <div class="hero-copy">
+            <p class="eyebrow">Leren zonder saaie vibes</p>
+            <h1>
+              Leer sneller, voel je beter en
+              <span>ga emoji-achtig door je vakken.</span>
+            </h1>
+            <p class="hero-text">
+              LearnRush maakt schoolwerk leuker, helderder en motiverender. Kies een vak,
+              doe een snelle quiz, krijg XP en bouw een persoonlijk leerprofiel op.
+            </p>
+
+            <div class="cta-row">
+              <button class="primary-btn" id="createProfileBtn" type="button">
+                Maak gratis account
+              </button>
+              <button class="secondary-btn" id="discoverBtn" type="button">
+                Bekijk vakken
+              </button>
+            </div>
+
+            <div class="mini-stats" aria-label="Statistieken">
+              <div>
+                <strong>18k+</strong>
+                <span>leerlingen</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>ervaring</span>
+              </div>
+              <div>
+                <strong>2 min</strong>
+                <span>per uitdaging</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Voorbeeld dashboard">
+            <div class="dashboard-card card-main">
+              <div class="card-top">
+                <span class="chip success">🔥 4-daagse streak</span>
+                <span class="chip info">+180 XP</span>
+              </div>
+
+              <div class="student-row">
+                <div class="avatar avatar-lg" id="heroAvatar">S</div>
+                <div>
+                  <p class="small-label">Vandaag</p>
+                  <h3 id="heroName">Sam</h3>
+                </div>
+              </div>
+
+              <div class="progress-block">
+                <div class="row-between">
+                  <p>Wiskunde</p>
+                  <strong>68%</strong>
+                </div>
+                <div class="progress-bar">
+                  <span style="width: 68%"></span>
+                </div>
+              </div>
+
+              <div class="progress-block">
+                <div class="row-between">
+                  <p>Engels</p>
+                  <strong>81%</strong>
+                </div>
+                <div class="progress-bar purple">
+                  <span style="width: 81%"></span>
+                </div>
+              </div>
+
+              <div class="skill-pills">
+                <span>💡 Minder stress</span>
+                <span>🏆 Badge</span>
+                <span>📈 Groei</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="dashboard" id="dashboard">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Dashboard</p>
+              <h2>Jouw leerflow</h2>
+            </div>
+            <button class="ghost-btn" type="button" id="focusBtn">Focus modus</button>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="stat-card purple">
+              <span class="stat-icon">🧠</span>
+              <div>
+                <p>XP totaal</p>
+                <h3 id="xpValue">820</h3>
+              </div>
+            </div>
+
+            <div class="stat-card green">
+              <span class="stat-icon">🔥</span>
+              <div>
+                <p>Streak</p>
+                <h3 id="streakValue">4 dagen</h3>
+              </div>
+            </div>
+
+            <div class="stat-card yellow">
+              <span class="stat-icon">🏅</span>
+              <div>
+                <p>Badges</p>
+                <h3 id="badgeValue">7</h3>
+              </div>
+            </div>
+
+            <div class="stat-card blue">
+              <span class="stat-icon">📚</span>
+              <div>
+                <p>Vak focus</p>
+                <h3 id="focusValue">Wiskunde</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="subjects" id="vakken">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Vakken</p>
+              <h2>Kies jouw vibe</h2>
+            </div>
+          </div>
+
+          <div class="subject-grid" id="subjectGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="challenge" id="challenge">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Challenge</p>
+              <h2>Snelle mini-quiz</h2>
+            </div>
+          </div>
+
+          <div class="challenge-layout">
+            <div class="quiz-card">
+              <div class="quiz-header">
+                <span class="chip" id="quizSubjectChip">Wiskunde</span>
+                <span class="small-label">Vraag 1/3</span>
+              </div>
+
+              <h3 id="quizQuestion">Welke uitdrukking is gelijk aan 3 × 4?</h3>
+              <div id="answerButtons" class="answer-grid"></div>
+              <div id="quizFeedback" class="quiz-feedback" aria-live="polite"></div>
+            </div>
+
+            <aside class="side-panel">
+              <div class="side-card">
+                <p class="small-label">Vandaag</p>
+                <h3>Doel</h3>
+                <ul>
+                  <li>✔️ 1 quiz voltooien</li>
+                  <li>✔️ 10 XP verdienen</li>
+                  <li>✔️ 1 nieuwe badge halen</li>
+                </ul>
+              </div>
+
+              <div class="side-card accent">
+                <p class="small-label">Motivatie</p>
+                <h3>Je bent sterker dan je denkt 💪</h3>
+                <button class="primary-btn" type="button" id="rewardBtn">
+                  Bonus verdienen
+                </button>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="profile" id="profiel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Profiel</p>
+              <h2>Jouw persoonlijke leerplek</h2>
+            </div>
+          </div>
+
+          <div class="profile-layout">
+            <form id="profileForm" class="profile-form">
+              <div class="input-row">
+                <label>
+                  Naam
+                  <input type="text" name="name" placeholder="Bijv. Sam" required />
+                </label>
+                <label>
+                  Klas
+                  <select name="grade">
+                    <option value="VMBO 3">VMBO 3</option>
+                    <option value="HAVO 3">HAVO 3</option>
+                    <option value="VWO 3">VWO 3</option>
+                    <option value="HAVO 4">HAVO 4</option>
+                    <option value="VWO 4">VWO 4</option>
+                    <option value="VWO 5">VWO 5</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="input-row">
+                <label>
+                  Favoriet vak
+                  <select name="favoriteSubject">
+                    <option value="Wiskunde">Wiskunde</option>
+                    <option value="Nederlands">Nederlands</option>
+                    <option value="Engels">Engels</option>
+                    <option value="Geschiedenis">Geschiedenis</option>
+                    <option value="Biologie">Biologie</option>
+                    <option value="Natuurkunde">Natuurkunde</option>
+                    <option value="Aardrijkskunde">Aardrijkskunde</option>
+                  </select>
+                </label>
+                <label>
+                  Leerdoel
+                  <input type="text" name="goal" placeholder="Bijv. Voldoende halen voor wiskunde" />
+                </label>
+              </div>
+
+              <div class="avatar-picker" aria-label="Kies avatarkleur">
+                <span>Avatar kleur</span>
+                <div class="color-options">
+                  <button class="color-chip active" type="button" data-color="#7c3aed" style="background:#7c3aed"></button>
+                  <button class="color-chip" type="button" data-color="#ec4899" style="background:#ec4899"></button>
+                  <button class="color-chip" type="button" data-color="#10b981" style="background:#10b981"></button>
+                  <button class="color-chip" type="button" data-color="#f59e0b" style="background:#f59e0b"></button>
+                  <button class="color-chip" type="button" data-color="#38bdf8" style="background:#38bdf8"></button>
+                </div>
+              </div>
+
+              <button class="primary-btn" type="submit">Profiel opslaan</button>
+            </form>
+
+            <div class="profile-preview">
+              <div class="preview-card">
+                <div class="avatar large-avatar" id="profileAvatar">S</div>
+                <h3 id="profileName">Sam</h3>
+                <p id="profileMeta">VWO 3 • Wiskunde</p>
+                <div class="goal-box" id="profileGoal">Leerdoel: Voldoende halen voor wiskunde</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal hidden" id="authModal" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <button class="close-modal" type="button" id="closeModal" aria-label="Sluit modal">×</button>
+        <div class="modal-header">
+          <p class="eyebrow">Welkom</p>
+          <h3 id="authTitle">Maak jouw LearnRush-account</h3>
+        </div>
+
+        <form id="authForm" class="auth-form">
+          <label>
+            Naam
+            <input type="text" name="name" placeholder="Bijv. Sam" required />
+          </label>
+          <label>
+            E-mail
+            <input type="email" name="email" placeholder="naam@email.com" required />
+          </label>
+          <label>
+            Wachtwoord
+            <input type="password" name="password" placeholder="Minimaal 6 tekens" required />
+          </label>
+
+          <button class="primary-btn" type="submit">Account aanmaken</button>
+        </form>
+
+        <p class="switch-auth">
+          Heb je al een account?
+          <button type="button" class="text-btn" id="switchAuthBtn">Inloggen</button>
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
